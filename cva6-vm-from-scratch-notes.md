@@ -24,7 +24,7 @@ A smaller configuration has been tested, which is sufficient to build the simula
  - video memory: 32MiB
  - RAM:  10GiB
  - Disc: 64GiB VMDK image
- - CPUs: 2
+ - CPUs: 2 or more
 
 
 ## Setup in the VM and the CVA6 repository
@@ -48,9 +48,9 @@ git submodule update --init --recursive
 
 ## Following the CVA6 instructions
 
-As per the CVA6 README, first set your `NUM_JOBS` environment variable:
+As per the CVA6 README, first set your `NUM_JOBS` environment variable. Set this to a value just less than the number of virtual cores in your VM:
 ```sh
-export NUM_JOBS=5
+export NUM_JOBS=3
 ```
 
 Then we look at the gcc toolchain...
