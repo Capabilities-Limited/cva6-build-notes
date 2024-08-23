@@ -1,2 +1,18 @@
-# cva6-build-notes
-Notes on building and using the CVA6 core and associated tools.
+![Cap Ltd Logo](./img/CapLtdLogo.png)
+
+# Notes on building CVA6
+
+The following notes describe how to build the CVA6 core from the Open
+Hardware Group, and the assocaited toolchain.  The build process
+worked for us at the point the notes were written.  Please see the
+[Lincese](LICENSE) for licensing terms.
+
+
+# Contents
+
+* [Create a Ubuntu virtual machine](create-ubuntu-vm.md)
+
+* [Build CVA6 and tools from scratch in a VM](cva6-vm-from-scratch-notes.md)
+
+
+
