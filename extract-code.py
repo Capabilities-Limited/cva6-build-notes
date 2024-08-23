@@ -29,4 +29,6 @@ else:
             fout.write("#!/usr/bin/bash\n")
             fout.write("# exit script on first error:\n")
             fout.write("set -e\n")
+            fout.write("# show commands executed\n")
+            fout.write("set -o xtrace\n")
         fout.write(code)

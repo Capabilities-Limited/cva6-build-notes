@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 # exit script on first error:
 set -e
+# show commands executed
+set -o xtrace
 sudo apt install -y git
 cd ~/
 git clone --depth 1 --branch v5.1.0 https://github.com/openhwgroup/cva6.git
