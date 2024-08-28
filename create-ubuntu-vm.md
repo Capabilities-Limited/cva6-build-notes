@@ -26,7 +26,7 @@ Install the ISO file as the virtual CD in the VM configuration, then boot up the
 
 ## Script to build a VirtualBox VM
 
-The following has been tested in a Ubuntu box. This is based on the larger configuration listed on the [CVA6 VM from Scratch Notes](cva6-vm-from-scratch-notes.md)
+The following has been tested in a Ubuntu box. This is based on the larger configuration listed above.
 
 ```bash
 #!/bin/bash
@@ -78,10 +78,8 @@ vboxmanage storageattach "$vmname" --storagectl "IDE Controller" --port 0 --devi
 vboxmanage startvm "$vmname"
 ```
 
-[refvmconfig]:
 ## Completing the install on the virtual machine:
-
-Use the GUI to:
+[refvmconfig]: Use the GUI to:
 1. Select the default boot option  
 2. Click on 'Install Ubuntu'
 3. Follow instructions to: choose your language; any accessability options; select your keyboard layout; use wired network connection; skip the new installer
