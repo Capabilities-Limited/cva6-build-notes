@@ -22,7 +22,7 @@ A smaller configuration has been tested, which is sufficient to build the simula
  - Disc: 64GiB VMDK image
  - CPUs: 2 or more
 
-Install the ISO file as the virtual CD in the VM configuration, then boot up the ISO image and following the [instructions below](#completing_the_install_on_the_virtual_machine).
+Install the ISO file as the virtual CD in the VM configuration, then boot up the ISO image and following the [instructions below](#completing-the-install-on-the-virtual-machine).
 
 ## Script to build a VirtualBox VM
 
