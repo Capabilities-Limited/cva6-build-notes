@@ -78,7 +78,7 @@ vboxmanage storageattach "$vmname" --storagectl "IDE Controller" --port 0 --devi
 vboxmanage startvm "$vmname"
 ```
 
-[refvmconfig]
+[refvmconfig]:
 ## Completing the install on the virtual machine:
 
 Use the GUI to:
