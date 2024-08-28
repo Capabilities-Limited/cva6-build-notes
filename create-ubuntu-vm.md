@@ -5,7 +5,7 @@
 ## Instructions to manually install a VM
 
 Downloaded the latest Ubuntu 24.04 LTS iso from theUbuntu website
-https://ubuntu.com/download/desktop - look for file ubuntu-24.04-desktop-amd64.iso
+[https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop) - look for file ubuntu-24.04-desktop-amd64.iso
 
 Install virtual box, create a new VM and set the following parameters:
  - video memory: 64MiB
@@ -22,7 +22,7 @@ A smaller configuration has been tested, which is sufficient to build the simula
  - Disc: 64GiB VMDK image
  - CPUs: 2 or more
 
-Install the ISO file as the virtual CD in the VM configuration, then boot up the ISO image and following the [Completing the install on the virtual machine][refvmconfig] instructions below.
+Install the ISO file as the virtual CD in the VM configuration, then boot up the ISO image and following the [instructions below](#completing_the_install_on_the_virtual_machine).
 
 ## Script to build a VirtualBox VM
 
@@ -78,8 +78,9 @@ vboxmanage storageattach "$vmname" --storagectl "IDE Controller" --port 0 --devi
 vboxmanage startvm "$vmname"
 ```
 
-## Completing the install on the virtual machine:
-[refvmconfig]: Use the GUI to:
+## Completing the install on the virtual machine
+
+Use the GUI to:
 1. Select the default boot option  
 2. Click on 'Install Ubuntu'
 3. Follow instructions to: choose your language; any accessability options; select your keyboard layout; use wired network connection; skip the new installer
