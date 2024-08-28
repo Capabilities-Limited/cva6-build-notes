@@ -2,7 +2,28 @@
 
 # Install a VirtualBox VM containing Ubuntu 24.04 LTS Desktop
 
-## Script to build the VM
+## Instructions to manually install a VM
+
+Downloaded the latest Ubuntu 24.04 LTS iso from theUbuntu website
+https://ubuntu.com/download/desktop - look for file ubuntu-24.04-desktop-amd64.iso
+
+Install virtual box, create a new VM and set the following parameters:
+ - video memory: 64MiB
+ - RAM:  32GiB
+ - Disc: 64GiB VMDK image
+ - CPUs: 4 or more
+Set the optical disc in the VM to point to the downloaded iso and boot. Keep the
+default options far installation, username "user", password "pass". When install
+is complete, reboot without the iso.
+
+A smaller configuration has been tested, which is sufficient to build the simulation and verification environment, but it likely to be too small for FPGA builds using Vivado:
+ - video memory: 32MiB
+ - RAM:  10GiB
+ - Disc: 64GiB VMDK image
+ - CPUs: 2 or more
+
+
+## Script to build a VirtualBox VM
 
 The following has been tested in a Ubuntu box. This is based on the larger configuration listed on the [CVA6 VM from Scratch Notes](cva6-vm-from-scratch-notes.md)
 
