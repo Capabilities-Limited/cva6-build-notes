@@ -113,9 +113,17 @@ Finally, to run the smoke tests:
 export DV_SIMULATORS=veri-testharness,spike
 bash verif/regress/smoke-tests.sh
 ```
-
 Optional: you can deactivate the python virtual environment once done:
 ```sh
 deactivate
 ```
+
+To view the test log, look in the dated directory out_ here:
+```
+less ~/cva6/verif/sim/out_*/iss_regr.log
+```
+
+Note that the log should show the comparison between tests running the CVA6 core in Verilator against the Spike ISA simulator.
+
+To run the full test suite, execute 'bash verif/regress/dv-riscv-arch-test.sh'
 
