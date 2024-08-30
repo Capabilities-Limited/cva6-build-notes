@@ -6,6 +6,8 @@
 
 This is a draft note based on the [cva6-vm-from-scratch-notes.md](cva6-vm-from-scratch-notes.md) instructions modified for Windows Subsystem for Linux rather than using a virtual machine.  Further testing is required.
 
+To be tested:
+* Currently we don't know if Vivado for Linux can be successfully installed under WSL.  This will be needed to use the automated FPGA build system.
 
 ## Install Windows Subsystem for Linux (WSL)
 
