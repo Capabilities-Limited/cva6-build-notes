@@ -34,7 +34,7 @@ This allows inspection of the instruction trace in this file:
 
 ```sh
 cd ~/cva6
-cat cva6/verif/sim/out_*/veri-testharness_sim/hello_world.cv64a6_imafdc_sv39.log.iss
+cat cva6/verif/sim/out_*/veri-testharness_sim/hello_world.cv64a6_imafdc_sv39.log
 ```
 
 For a full waveform trace:
