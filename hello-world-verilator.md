@@ -21,7 +21,10 @@ You can now use the cva6.py script to run a standalone simulation:
 cd ~/cva6/verif/sim
 export DV_SIMULATORS=veri-testharness
 export TRACE_FAST=1
-python3 cva6.py --target cv64a6_imafdc_sv39 --iss=$DV_SIMULATORS --iss_yaml=cva6.yaml --c_tests ../tests/custom/hello_world/hello_world.c --linker=../tests/custom/common/test.ld --gcc_opts="-static -mcmodel=medany -fvisibility=hidden -nostdlib \
+python3 cva6.py --target cv64a6_imafdc_sv39 --iss=$DV_SIMULATORS \
+--iss_yaml=cva6.yaml --c_tests ../tests/custom/hello_world/hello_world.c \
+--linker=../tests/custom/common/test.ld \
+--gcc_opts="-static -mcmodel=medany -fvisibility=hidden -nostdlib \
 -nostartfiles -g ../tests/custom/common/syscalls.c \
 ../tests/custom/common/crt.S -lgcc \
 -I../tests/custom/env -I../tests/custom/common"
