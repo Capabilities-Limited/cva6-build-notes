@@ -8,7 +8,7 @@ The setup-env.sh script from the cva6 repo expects the RISCV enviornment variabl
 
 ```sh
 export RISCV=~/riscv-tools
-echo "export RISCV=\~/riscv-tools" >> ~/.bashrc
+echo "export RISCV=~/riscv-tools" >> ~/.bashrc
 cd ~/cva6
 rm -rf tools/verilator
 ln -s ~/cva6/tools/verilator-v5.008 tools/verilator
