@@ -14,5 +14,6 @@ worked for us at the point the notes were written.  Please see the
 
 * [Build CVA6 and tools from scratch in a VM](cva6-vm-from-scratch-notes.md)
 
+* [Simulate a bare-metal example to inspect traces.](hello-world-verilator.md)
 
 
