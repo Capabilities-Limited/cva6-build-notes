@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set Ubuntu version
-ubuntuversion="24.04"
+ubuntuversion="24.04.1"
 
 # Name the virtual machine
 vmname="Ubuntu "$ubuntuversion
