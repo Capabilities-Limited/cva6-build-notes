@@ -28,7 +28,7 @@ if [ -d $vmdisk ]; then
    echo "ERROR: there is an existing earlier installation of a VM disk in "$vmdisk". Remove files in directory "$VBOX_USER_HOME" before reruning this script."
    exit
 fi
-   
+
 # Download Ubuntu desktop image from University of Kent mirror
 media="ubuntu-"$ubuntuversion"-desktop-amd64.iso"
 echo "INFO: about to download $media if it has not already been downloaded"
@@ -46,7 +46,7 @@ vboxmanage storageattach "$vmname" --storagectl "IDE Controller" --port 0 --devi
 # Start the VM
 echo "INFO: starting the virtual machine."
 echo "INSTRUCTIONS: Use the GUI to:"
-echo "INSTRUCTIONS:  1. Select the default boot option"  
+echo "INSTRUCTIONS:  1. Select the default boot option"
 echo "INSTRUCTIONS:  2. Click on 'Install Ubuntu'"
 echo "INSTRUCTIONS:  3. Follow instructions to: choose your language; any accessability options; select your keyboard layout; use wired network connection; skip the new installer"
 echo "INSTRUCTIONS:  4. When 'What do you want to do with Ubuntu' appears, ensure 'Install Ubuntu' is selected and click 'Next'."
@@ -67,6 +67,3 @@ echo "INSTRUCTIONS: 17. Right click the background and select 'Open in Terminal'
 echo "INSTRUCTIONS: 18. In the terminal enter 'sudo apt update;sudo apt upgrade -y' and enter your login password when asked.  This will upgrade any old packages."
 echo "INSTRUCTIONS: 19. Install clipboard sharing, etc., using: 'sudo apt install -y virtualbox-guest-x11;sudo VBoxClient --clipboard"
 vboxmanage startvm "$vmname"
-
-
-
