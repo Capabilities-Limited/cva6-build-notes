@@ -56,7 +56,7 @@ Then we look at the gcc toolchain...
 
 REQUIRED FOR WSL:
 ```sh
-sudo apt add-apt-repository universe multiverse
+sudo add-apt-repository universe multiverse
 ```
 
 Install the prerequisites:
