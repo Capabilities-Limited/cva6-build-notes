@@ -206,6 +206,10 @@ export WSLENV=XILINX_PART:XILINX_BOARD:BOARD
 # now start vivado and pass any command-line options
 cmd.exe /s /mnt/c/Xilinx/Vivado/2020.1/bin/vivado.bat $*
 ```
+You also need to make sure that script is executable to call it from the command line:
+```
+chmod +x ~/bin/vivado
+```
 
 * Add ~/bin to your PATH so that running 'vivado' will call the above script, vis:
 ```
