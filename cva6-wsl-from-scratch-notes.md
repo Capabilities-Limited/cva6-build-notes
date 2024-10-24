@@ -38,7 +38,7 @@ Clone the CVA6 repository (and update submodules) at the `v5.1.0` tag
 (no history needed):
 ```sh
 cd ~/
-git clone --depth 1 --branch v5.1.0 https://github.com/openhwgroup/cva6.git
+git clone --depth 1 --branch v5.1.0-patched https://github.com/Capabilities-Limited/cva6.git
 cd cva6
 git submodule update --init --recursive
 ```
