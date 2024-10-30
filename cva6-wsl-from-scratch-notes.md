@@ -11,7 +11,7 @@ To be tested:
 
 ## Install Windows Subsystem for Linux (WSL)
 
-Install Ununtu 24.04 LTS in WSL.  Open PowerShell and enter:
+Install Ubuntu 24.04 LTS in WSL.  Open PowerShell and enter:
 ```
 wsl --install -d Ubuntu-24.04
 ```
@@ -97,7 +97,7 @@ sudo apt install -y help2man device-tree-compiler
 ```
 
 We install the riscv-dv requirements. This first requires python packages which
-are now (recent python3 from Ubunutu 24.04) managed using a python virtual
+are now (recent python3 from Ubuntu 24.04) managed using a python virtual
 environment. Create a new python virtual environment and run pip to install the
 python packages from the requirement.txt file:
 ```sh
@@ -144,8 +144,8 @@ access, etc.
 * Interoperability of files and environment variables between WSL2 and Windows:
   [https://learn.microsoft.com/en-us/windows/wsl/filesystems](https://learn.microsoft.com/en-us/windows/wsl/filesystems)
   * The Windows home filespace is accessible from WSL as /mnt/c/Users/username
-  * The WSL2 filespace is accessible from Windows as \\wsl$ in filer, or from Powersheel as \\wsl.localhost\Ubuntu-24.04\home\username
-  * When calling commands from WSL2, the shared environment varilables are specified by the colon seperated list in environment variable WSLENV. Note that this list can also specify path modifiers, etc. - see the above guide
+  * The WSL2 filespace is accessible from Windows as \\wsl$ in filer, or from PowerShell as \\wsl.localhost\Ubuntu-24.04\home\username
+  * When calling commands from WSL2, the shared environment variables are specified by the colon separated list in environment variable WSLENV. Note that this list can also specify path modifiers, etc. - see the above guide
 
 ## Dependencies
 
@@ -173,7 +173,7 @@ In the extracted directory, double click on xsetup.exe to start the installation
   * Install the default "Vivado HL System Edition"
   * I went with the default devices, etc., but could be more selective.
   * Left the default location for tools.
-  * Finally, setup your licensing to suite your local support.
+  * Finally, setup your licensing to suit your local support.
 
 
 ## Installing the Genesys 2 Board Support Package
@@ -215,7 +215,7 @@ chmod +x ~/bin/vivado
 ```
 export PATH=~/bin:$PATH
 ```
-  * Note that the default ~/.profile will add this path everytime a new shell is started
+  * Note that the default ~/.profile will add this path every time a new shell is started
 
 
 ## FPGA build from scratch

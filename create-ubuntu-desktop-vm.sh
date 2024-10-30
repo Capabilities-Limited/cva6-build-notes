@@ -14,7 +14,7 @@ set -o xtrace
 # Force virtual box VMs to be created locally:
 export VBOX_USER_HOME=`pwd`/VirtualBoxVMs
 
-# Location of the final VM confuguration
+# Location of the final VM configuration
 vmconfigdir="~/VirtualBox VMs/$vname"
 
 # Location of the virtual disk
@@ -25,7 +25,7 @@ if [ -d $vmconfigdir ]; then
    exit
 fi
 if [ -d $vmdisk ]; then
-   echo "ERROR: there is an existing earlier installation of a VM disk in "$vmdisk". Remove files in directory "$VBOX_USER_HOME" before reruning this script."
+   echo "ERROR: there is an existing earlier installation of a VM disk in "$vmdisk". Remove files in directory "$VBOX_USER_HOME" before rerunning this script."
    exit
 fi
 
@@ -48,7 +48,7 @@ echo "INFO: starting the virtual machine."
 echo "INSTRUCTIONS: Use the GUI to:"
 echo "INSTRUCTIONS:  1. Select the default boot option"
 echo "INSTRUCTIONS:  2. Click on 'Install Ubuntu'"
-echo "INSTRUCTIONS:  3. Follow instructions to: choose your language; any accessability options; select your keyboard layout; use wired network connection; skip the new installer"
+echo "INSTRUCTIONS:  3. Follow instructions to: choose your language; any accessibility options; select your keyboard layout; use wired network connection; skip the new installer"
 echo "INSTRUCTIONS:  4. When 'What do you want to do with Ubuntu' appears, ensure 'Install Ubuntu' is selected and click 'Next'."
 echo "INSTRUCTIONS:  5. Select 'Interactive install'"
 # TODO: add an autoinstall.yaml?
@@ -59,7 +59,7 @@ echo "INSTRUCTIONS:  9. For 'Create your account', complete the details you woul
 echo "INSTRUCTIONS: 10. For 'Select your timezone' ensure that 'Europe/London' is selected."
 echo "INSTRUCTIONS: 11. When asked 'Review your choices' click on 'Install'.  Then wait!"
 echo "INSTRUCTIONS: 12. Once the install is complete, click 'Restart now'."
-echo "INSTRUCTIONS: 13. The virtual CD containting the install media should have been ejected so it is safe to hit ENTER to the message 'Please remove the installation medium, then press ENTER'"
+echo "INSTRUCTIONS: 13. The virtual CD containing the install media should have been ejected so it is safe to hit ENTER to the message 'Please remove the installation medium, then press ENTER'"
 echo "INSTRUCTIONS: 14. After the reboot completes you will see a welcome message; click 'Next'."
 echo "INSTRUCTIONS: 15. When asked 'Enable Ubuntu Pro' ensure 'Skip for now' is selected. Click 'Next'"
 echo "INSTRUCTIONS: 16. When asked 'Help improve Ubuntu' select 'No, don't share system data'. Click 'Next'; then clock 'Finish'"
