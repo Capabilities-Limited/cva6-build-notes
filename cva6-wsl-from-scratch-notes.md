@@ -241,5 +241,5 @@ make -C corev_apu/fpga clean
 
 * Finally, we can perform the FPGA build using our modified Makefile that adjusts the paths in generated tcl files to work with Windows:
 ```
-make -f Makefile_capltd fpga
+make -f Makefile_windows fpga
 ```
