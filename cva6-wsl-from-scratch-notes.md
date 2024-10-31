@@ -35,7 +35,9 @@ sudo apt install -y git
 You may also like to install an editor like vim: `sudo apt install -y vim`
 
 Clone the CVA6 repository (and update submodules) at the `v5.1.0` tag
-(no history needed):
+(no history needed).
+We use the Capabilities Limited `v5.1.0-patched` branch which includes
+a small set of patches needed on top of `v5.1.0`:
 ```sh
 cd ~/
 git clone --depth 1 --branch v5.1.0-patched https://github.com/Capabilities-Limited/cva6.git
