@@ -22,7 +22,7 @@ In the Ubuntu VM, start by updating all packages:
 `sudo apt update && sudo apt upgrade -y`
 
 
-NOTE REQUIRED FOR WSL: Then install `git`:
+NOT REQUIRED FOR WSL: Then install `git`:
 ```sh
 sudo apt install -y git
 ```
