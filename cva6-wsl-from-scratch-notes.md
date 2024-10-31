@@ -14,6 +14,8 @@ wsl --install -d Ubuntu-24.04
 Reboot when done.  WSL should open when you login after the reboot.
 You will need to complete the install by setting up a user account as
 directed.
+From now on, WSL can be run as a normal Windows application or using
+`wsl` from PowerShell.
 
 
 ## Obtaining a copy of the CVA6 repository
