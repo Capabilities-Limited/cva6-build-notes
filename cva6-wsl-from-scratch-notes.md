@@ -212,7 +212,7 @@ chmod +x ~/bin/vivado
 ```
 export PATH=~/bin:$PATH
 ```
-  * Note that the default ~/.profile will add this path every time a new shell is started
+  * Note that the default ~/.profile will add this path (if it exists) every time a new shell is started
 
 
 ## FPGA build from scratch
