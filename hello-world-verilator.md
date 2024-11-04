@@ -1,10 +1,10 @@
 ![Cap Ltd Logo](./img/CapLtdLogo.png)
 
-# Executing and debugging a verilator RTL simulation of CVA6
+# Executing and debugging a Verilator RTL simulation of CVA6
 
-## Preparing the enviornment
+## Preparing the environment
 
-The setup-env.sh script from the cva6 repo expects the RISCV enviornment variable to be set, and a "verilator" directory.
+The setup-env.sh script from the cva6 repo expects the RISCV environment variable to be set, and a "verilator" directory.
 
 ```sh
 export RISCV=~/riscv-tools

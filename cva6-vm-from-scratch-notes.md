@@ -77,7 +77,7 @@ sudo apt install -y help2man device-tree-compiler
 ```
 
 We install the riscv-dv requirements. This first requires python packages which
-are now (recent python3 from Ubunutu 24.04) managed using a python virtual
+are now (recent python3 from Ubuntu 24.04) managed using a python virtual
 environment. Create a new python virtual environment and run pip to install the
 python packages from the requirement.txt file:
 ```sh

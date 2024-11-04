@@ -1,17 +1,12 @@
 ![Cap Ltd Logo](./img/CapLtdLogo.png)
 
-# DRAFT NOTES: Setup a WSL to host a CVA6 simulation environment
+# Setup a WSL to host a CVA6 simulation environment
 
-## History
-
-This is a draft note based on the [cva6-vm-from-scratch-notes.md](cva6-vm-from-scratch-notes.md) instructions modified for Windows Subsystem for Linux rather than using a virtual machine.  Further testing is required.
-
-To be tested:
-* Currently we don't know if Vivado for Linux can be successfully installed under WSL.  This will be needed to use the automated FPGA build system.
+This is a note based on the [cva6-vm-from-scratch-notes.md](cva6-vm-from-scratch-notes.md) instructions modified for Windows Subsystem for Linux rather than using a virtual machine.
 
 ## Install Windows Subsystem for Linux (WSL)
 
-Install Ununtu 24.04 LTS in WSL.  Open PowerShell and enter:
+Install Ubuntu 24.04 LTS in WSL.  Open PowerShell and enter:
 ```
 wsl --install -d Ubuntu-24.04
 ```
@@ -19,6 +14,8 @@ wsl --install -d Ubuntu-24.04
 Reboot when done.  WSL should open when you login after the reboot.
 You will need to complete the install by setting up a user account as
 directed.
+From now on, WSL can be run as a normal Windows application or using
+`wsl` from PowerShell.
 
 
 ## Obtaining a copy of the CVA6 repository
@@ -27,7 +24,7 @@ In the Ubuntu VM, start by updating all packages:
 `sudo apt update && sudo apt upgrade -y`
 
 
-NOTE REQUIRED FOR WSL: Then install `git`:
+NOT REQUIRED FOR WSL: Then install `git`:
 ```sh
 sudo apt install -y git
 ```
@@ -35,10 +32,12 @@ sudo apt install -y git
 You may also like to install an editor like vim: `sudo apt install -y vim`
 
 Clone the CVA6 repository (and update submodules) at the `v5.1.0` tag
-(no history needed):
+(no history needed).
+We use the Capabilities Limited `v5.1.0-patched` branch which includes
+a small set of patches needed on top of `v5.1.0`:
 ```sh
 cd ~/
-git clone --depth 1 --branch v5.1.0 https://github.com/openhwgroup/cva6.git
+git clone --depth 1 --branch v5.1.0-patched https://github.com/Capabilities-Limited/cva6.git
 cd cva6
 git submodule update --init --recursive
 ```
@@ -97,7 +96,7 @@ sudo apt install -y help2man device-tree-compiler
 ```
 
 We install the riscv-dv requirements. This first requires python packages which
-are now (recent python3 from Ubunutu 24.04) managed using a python virtual
+are now (recent python3 from Ubuntu 24.04) managed using a python virtual
 environment. Create a new python virtual environment and run pip to install the
 python packages from the requirement.txt file:
 ```sh
@@ -144,8 +143,8 @@ access, etc.
 * Interoperability of files and environment variables between WSL2 and Windows:
   [https://learn.microsoft.com/en-us/windows/wsl/filesystems](https://learn.microsoft.com/en-us/windows/wsl/filesystems)
   * The Windows home filespace is accessible from WSL as /mnt/c/Users/username
-  * The WSL2 filespace is accessible from Windows as \\wsl$ in filer, or from Powersheel as \\wsl.localhost\Ubuntu-24.04\home\username
-  * When calling commands from WSL2, the shared environment varilables are specified by the colon seperated list in environment variable WSLENV. Note that this list can also specify path modifiers, etc. - see the above guide
+  * The WSL2 filespace is accessible from Windows as \\wsl$ in filer, or from PowerShell as \\wsl.localhost\Ubuntu-24.04\home\username
+  * When calling commands from WSL2, the shared environment variables are specified by the colon separated list in environment variable WSLENV. Note that this list can also specify path modifiers, etc. - see the above guide
 
 ## Dependencies
 
@@ -173,7 +172,7 @@ In the extracted directory, double click on xsetup.exe to start the installation
   * Install the default "Vivado HL System Edition"
   * I went with the default devices, etc., but could be more selective.
   * Left the default location for tools.
-  * Finally, setup your licensing to suite your local support.
+  * Finally, setup your licensing to suit your local support.
 
 
 ## Installing the Genesys 2 Board Support Package
@@ -206,12 +205,16 @@ export WSLENV=XILINX_PART:XILINX_BOARD:BOARD
 # now start vivado and pass any command-line options
 cmd.exe /s /mnt/c/Xilinx/Vivado/2020.1/bin/vivado.bat $*
 ```
+You also need to make sure that script is executable to call it from the command line:
+```
+chmod +x ~/bin/vivado
+```
 
 * Add ~/bin to your PATH so that running 'vivado' will call the above script, vis:
 ```
 export PATH=~/bin:$PATH
 ```
-  * Note that the default ~/.profile will add this path everytime a new shell is started
+  * Note that the default ~/.profile will add this path (if it exists) every time a new shell is started
 
 
 ## FPGA build from scratch
@@ -240,13 +243,14 @@ make -C corev_apu/fpga clean
 
 * Finally, we can perform the FPGA build using our modified Makefile that adjusts the paths in generated tcl files to work with Windows:
 ```
-make -f Makefile_capltd fpga
+make -f Makefile_windows fpga
 ```
 
+## Notes on the work in the CVA6 repository for WSL compatibility
 
-## Notes on changes to the cva6 repository for WSL compatibility
+The Capabilities Limited fork of CVA6 includes a [v5.1.0-patched](https://github.com/Capabilities-Limited/cva6/tree/v5.1.0-patched) branch with some minor changes required for WSL compatibility:
 
-* Script capltd_unix2win_paths.py used to convert unix to windows paths:
+* A `capltd_unix2win_paths.py` script used to convert unix to windows paths was added:
 ```python
 #!/usr/bin/env python3
 
@@ -285,29 +289,26 @@ with open(outfn, 'w') as fout:
 
 ```
 
-* Using the above script in the cva6/Makefile.
-  * In the fpga: part of the Makefile before:
+* A copy of the main CVA6 `Makefile` called `Makefile_windows` using the previously mentionned `capltd_unix2win_paths.py` script was added. In its `fpga:` target, before the line:
 ```
 	$(MAKE) -C corev_apu/fpga BOARD=$(BOARD) XILINX_PART=$(XILINX_PART) XILINX_BOARD=$(XILINX_BOARD) CLK_PERIOD_NS=$(CLK_PERIOD_NS)
 ```
-  * Add:
+, the following invocation of the script is added:
 ```
 	# Capabilities Limited addition to convert paths to use Windows paths for Vivado on Windows:
 	@echo "[FPGA] Convert paths in corev_apu/fpga/scripts/add_sources.tcl from UNIX to Windows before running Windows version of Vivado"
 	python3 capltd_unix2win_paths.py corev_apu/fpga/scripts/add_sources.tcl
 ```
 
-* In cva6/corev_apu/fpga/scripts/run.tcl
-  * change:
+* The `corev_apu/fpga/scripts/run.tcl` script was updated to address a short-coming of the available `rm` utility, which fails on empty folders. The following snippet of code:
 ```
 exec mkdir -p reports/
 exec rm -rf reports/*
 ```
-  * to:
+is changed to:
 ```
 exec mkdir -p reports/
 # work around to fix bug in Xilinx Windows versin of rm:
 exec touch reports/tmp
 exec rm -rf reports/*
 ```
-

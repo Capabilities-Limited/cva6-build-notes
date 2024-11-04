@@ -4,7 +4,7 @@
 
 ## Instructions to manually install a VM
 
-Downloaded the latest Ubuntu 24.04 LTS iso from theUbuntu website
+Downloaded the latest Ubuntu 24.04 LTS iso from the Ubuntu website
 [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop) - look for file ubuntu-24.04-desktop-amd64.iso
 
 Install virtual box, create a new VM and set the following parameters:
@@ -83,7 +83,7 @@ vboxmanage startvm "$vmname"
 Use the GUI to:
 1. Select the default boot option  
 2. Click on 'Install Ubuntu'
-3. Follow instructions to: choose your language; any accessability options; select your keyboard layout; use wired network connection; skip the new installer
+3. Follow instructions to: choose your language; any accessibility options; select your keyboard layout; use wired network connection; skip the new installer
 4. When 'What do you want to do with Ubuntu' appears, ensure 'Install Ubuntu' is selected and click 'Next'.
 5. Select 'Interactive install'
 6. When asked 'What apps would you like to install to start with?' select the default.
@@ -93,7 +93,7 @@ Use the GUI to:
 10. For 'Select your timezone' ensure that 'Europe/London' is selected.
 11. When asked 'Review your choices' click on 'Install'.  Then wait!
 12. Once the install is complete, click 'Restart now'.
-13. The virtual CD containting the install media should have been ejected so it is safe to hit ENTER to the message 'Please remove the installation medium, then press ENTER'
+13. The virtual CD containing the install media should have been ejected so it is safe to hit ENTER to the message 'Please remove the installation medium, then press ENTER'
 14. After the reboot completes you will see a welcome message; click 'Next'.
 15. When asked 'Enable Ubuntu Pro' ensure 'Skip for now' is selected. Click 'Next'
 16. When asked 'Help improve Ubuntu' select 'No, don't share system data'. Click 'Next'; then clock 'Finish'
