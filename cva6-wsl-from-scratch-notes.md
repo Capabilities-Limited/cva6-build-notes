@@ -245,3 +245,70 @@ make -C corev_apu/fpga clean
 ```
 make -f Makefile_windows fpga
 ```
+
+## Notes on the work in the CVA6 repository for WSL compatibility
+
+The Capabilities Limited fork of CVA6 includes a [v5.1.0-patched](https://github.com/Capabilities-Limited/cva6/tree/v5.1.0-patched) branch with some minor changes required for WSL compatibility:
+
+* A `capltd_unix2win_paths.py` script used to convert unix to windows paths was added:
+```python
+#!/usr/bin/env python3
+
+##############################################################################
+# Script convert UNIX to Windows paths
+##############################################################################
+# Copyright Simon W. Moore, Capabilities Limited, September 2024
+##############################################################################
+# Notes:
+#  - replaces /mnt/c with C: (for any drive letter)
+#  - preserves the UNIX / seperator rather than use the windows \ since that
+#    is what is needed in Xilinx tcl scripts
+
+import argparse
+
+parser = argparse.ArgumentParser(
+    description='Convert UNIX to Winodws paths',
+    epilog='')
+parser.add_argument('filename')
+parser.add_argument('-o', '--output_file', default=None, help="output filename")
+args = parser.parse_args()
+
+with open(args.filename, 'r') as fin:
+    code = ''.join(fin.readlines())
+
+outfn = args.filename if (args.output_file==None) else args.output_file
+with open(outfn, 'w') as fout:
+    words = code.split(' ')
+    for j in range(len(words)):
+        pathlst = words[j].split('/')
+        if((len(pathlst)>3) and (pathlst[1]=='mnt')):
+            drive = pathlst[2]
+            words[j] = pathlst[0]+drive.capitalize()+':/'+'/'.join(pathlst[3:])
+    code = ' '.join(words)
+    fout.write(code)
+
+```
+
+* A copy of the main CVA6 `Makefile` called `Makefile_windows` using the previously mentionned `capltd_unix2win_paths.py` script was added. In its `fpga:` target, before the line:
+```
+	$(MAKE) -C corev_apu/fpga BOARD=$(BOARD) XILINX_PART=$(XILINX_PART) XILINX_BOARD=$(XILINX_BOARD) CLK_PERIOD_NS=$(CLK_PERIOD_NS)
+```
+, the following invocation of the script is added:
+```
+	# Capabilities Limited addition to convert paths to use Windows paths for Vivado on Windows:
+	@echo "[FPGA] Convert paths in corev_apu/fpga/scripts/add_sources.tcl from UNIX to Windows before running Windows version of Vivado"
+	python3 capltd_unix2win_paths.py corev_apu/fpga/scripts/add_sources.tcl
+```
+
+* The `corev_apu/fpga/scripts/run.tcl` script was updated to address a short-coming of the available `rm` utility, which fails on empty folders. The following snippet of code:
+```
+exec mkdir -p reports/
+exec rm -rf reports/*
+```
+is changed to:
+```
+exec mkdir -p reports/
+# work around to fix bug in Xilinx Windows versin of rm:
+exec touch reports/tmp
+exec rm -rf reports/*
+```
