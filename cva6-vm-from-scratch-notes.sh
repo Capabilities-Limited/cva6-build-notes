@@ -5,7 +5,7 @@ set -e
 set -o xtrace
 sudo apt install -y git
 cd ~/
-git clone --depth 1 --branch v5.1.0 https://github.com/openhwgroup/cva6.git
+git clone --depth 1 --branch v5.1.0-patched https://github.com/Capabilities-Limited/cva6.git
 cd cva6
 git submodule update --init --recursive
 export NUM_JOBS=3
