@@ -106,3 +106,10 @@ Note that the log should show the comparison between tests running the CVA6 core
 
 To run the full test suite, execute 'bash verif/regress/dv-riscv-arch-test.sh'
 
+## Install Vivado and build a bitfile
+
+Follow the instructions in the [vivado install notes](https://github.com/Capabilities-Limited/cva6-build-notes/blob/main/vivado-2020.1-ubuntu-install-notes.md#setup-vivado-for-cva6-bitstream-builds-on-ubuntu). Don't forget to [setup the Digilent Vivado board files](https://github.com/Capabilities-Limited/cva6-build-notes/blob/main/vivado-2020.1-ubuntu-install-notes.md#setup-the-digilent-vivado-board-files). Once you have a working Vivado installation, you can build the CVA6 `fpga` target:
+```
+cd ~/cva6
+make fpga
+```
