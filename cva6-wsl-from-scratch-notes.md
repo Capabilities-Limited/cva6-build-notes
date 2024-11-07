@@ -246,6 +246,72 @@ make -C corev_apu/fpga clean
 make -f Makefile_windows fpga
 ```
 
+## Windows USB drivers for Genesys 2
+
+The Windows Vivado install relies on the Digilent drivers for the Genesys 2 JTAG port to flash the bitfile on the board. These drivers do not let VSCode+PlatformIO and OpenOCD see the board for software upload. To expose the board to OpenOCD, some generic USB driver can be used instead.
+
+These can be installed using "zadig" (website: https://zadig.akeo.ie/, github: https://github.com/pbatard/libwdi/wiki/Zadig). Download the zadig executable from https://github.com/pbatard/libwdi/releases/download/v1.5.1/zadig-2.9.exe.
+
+Following the instructions from the libwdi github wiki, with a plugged-in and turned-on Genesys 2 usb JTAG, run the downloaded executable and allow administrator access. The list of available devices displayed in zadig does not include the Genesys 2 board digilent usb device by default. Select Options > List All Devices to see all available devices, and two "Digilent Adept USB Device (Interface 0)" and "Digilent Adept USB Device (Interface 1)" should appear.
+
+Replace the driver for the interface 0 device to "WinUSB (v6.1.7600.16385)".
+
+### Empirical observations:
+
+<table>
+  <tr>
+    <td colspan="2">Digilent Adept USB Device driver</td>
+    <td rowspan="2">VSCode + PlatformIO + OpenOCD</td>
+    <td rowspan="2">Vivado hardware manager</td>
+  </tr>
+  <tr>
+    <td>Interface 1</td>
+    <td>Interface 0</td>
+  </tr>
+  <tr style='text-align: center'>
+    <td>WinUSB</td>
+    <td>WinUSB</td>
+    <td>✅</td>
+    <td>❌</td>
+  </tr>
+  <tr style='text-align: center'>
+    <td>WinUSB</td>
+    <td>Digilent</td>
+    <td>❌</td>
+    <td>❌</td>
+  </tr>
+  <tr style='text-align: center'>
+    <td>Digilent</td>
+    <td>WinUSB</td>
+    <td>✅</td>
+    <td>✅</td>
+  </tr>
+  <tr style='text-align: center'>
+    <td>Digilent</td>
+    <td>Digilent</td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+</table>
+
+Vivado uses interface 1 with the Digilent driver, and OpenOCD uses interface 0 with the WinUSB driver.
+
+### Extra notes
+
+If needed, you can reinstall the digilent drivers by running the digilent usb driver installer:
+`C:\Program Files (x86)\Digilent\Runtime\UsbDriver\DPInst.exe`
+
+
+
+
+
+
+
+
+
+
+
+
 ## Notes on the work in the CVA6 repository for WSL compatibility
 
 The Capabilities Limited fork of CVA6 includes a [v5.1.0-patched](https://github.com/Capabilities-Limited/cva6/tree/v5.1.0-patched) branch with some minor changes required for WSL compatibility:
