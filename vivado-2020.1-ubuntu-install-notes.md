@@ -62,6 +62,7 @@ You can edit the resulting file generated under `~/.Xilinx/install_config.txt` i
 Alternatively, you can manually create this file as follows:
 ```
 cat > ~/.Xilinx/install_config.txt << EOF
+Edition=Vivado HL System Editiion
 Product=Vivado
 Destination=/tools/Xilinx
 Modules=Kintex-7:1
