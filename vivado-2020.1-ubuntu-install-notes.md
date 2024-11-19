@@ -116,7 +116,7 @@ sed "s|<extracted path>|$PWD|" vivado-boards/utility/Vivado_init.tcl > $HOME/.Xi
 ---
 
 ### option 2: download an archive and copy the board files in the Vivado install folder
-You can download the board file archive and manually copy the board files into the Vivado install folder:
+You can download the board file archive and manually copy the board files into the Vivado install folder (you may need `sudo` for the `cp` command based on your Vivado install path):
 ```
 wget https://github.com/Digilent/vivado-boards/archive/master.zip
 unzip master.zip
