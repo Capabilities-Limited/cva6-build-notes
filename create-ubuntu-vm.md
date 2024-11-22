@@ -2,6 +2,10 @@
 
 # Install a VirtualBox VM containing Ubuntu 24.04 LTS Desktop
 
+## Choice of VirtualBox version
+
+The default VirtualBox distributed by Ubuntu is typically a version behind that recommended by VirtualBox.  On some machines we found that we needed the latest version downloaded as a pre-build Debian package from [https://www.virtualbox.org/wiki/Linux_Downloads](https://www.virtualbox.org/wiki/Linux_Downloads)
+
 ## Instructions to manually install a VM
 
 Downloaded the latest Ubuntu 24.04 LTS iso from the Ubuntu website
@@ -10,7 +14,7 @@ Downloaded the latest Ubuntu 24.04 LTS iso from the Ubuntu website
 Install virtual box, create a new VM and set the following parameters:
  - video memory: 64MiB
  - RAM:  32GiB
- - Disc: 64GiB VMDK image
+ - Disc: 200GiB VMDK image
  - CPUs: 4 or more
 Set the optical disc in the VM to point to the downloaded iso and boot. Keep the
 default options far installation, username "user", password "pass". When install
