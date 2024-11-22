@@ -36,8 +36,8 @@ rsync --copy-links --progress  rsync://rsync.mirrorservice.org/releases.ubuntu.c
 
 # Configure the virtual machine
 vboxmanage createvm --name "$vmname" --ostype Ubuntu_64 --register
-vboxmanage modifyvm "$vmname" --cpus 2 --memory 32768 --vram 64 --graphicscontroller vmsvga --usbohci on --mouse usbtablet --clipboard-mode=bidirectional
-vboxmanage createhd --filename "$vmdisk" --size 65536 --variant Standard
+vboxmanage modifyvm "$vmname" --cpus 4 --memory 32768 --vram 64 --graphicscontroller vmsvga --usbohci on --mouse usbtablet --clipboard-mode=bidirectional
+vboxmanage createhd --filename "$vmdisk" --size 204800 --variant Standard
 vboxmanage storagectl "$vmname" --name "SATA Controller" --add sata --bootable on
 vboxmanage storageattach "$vmname" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "$vmdisk"
 vboxmanage storagectl "$vmname" --name "IDE Controller" --add ide
