@@ -258,41 +258,14 @@ Replace the driver for the interface 0 device to "WinUSB (v6.1.7600.16385)".
 
 ### Empirical observations:
 
-<table>
-  <tr>
-    <td colspan="2">Digilent Adept USB Device driver</td>
-    <td rowspan="2">VSCode + PlatformIO + OpenOCD</td>
-    <td rowspan="2">Vivado hardware manager</td>
-  </tr>
-  <tr>
-    <td>Interface 1</td>
-    <td>Interface 0</td>
-  </tr>
-  <tr style='text-align: center'>
-    <td>WinUSB</td>
-    <td>WinUSB</td>
-    <td>✅</td>
-    <td>❌</td>
-  </tr>
-  <tr style='text-align: center'>
-    <td>WinUSB</td>
-    <td>Digilent</td>
-    <td>❌</td>
-    <td>❌</td>
-  </tr>
-  <tr style='text-align: center'>
-    <td>Digilent</td>
-    <td>WinUSB</td>
-    <td>✅</td>
-    <td>✅</td>
-  </tr>
-  <tr style='text-align: center'>
-    <td>Digilent</td>
-    <td>Digilent</td>
-    <td>❌</td>
-    <td>✅</td>
-  </tr>
-</table>
+Digilent Adept USB Device driver interactions with Vivado and with VSCode/PlatformIO/OpenOCD.
+
+| USB interface 1 | USB interface 0 | VSCode + PlatformIO + OpenOCD | Vivado hardware manager |
+| --------------- | --------------- | :---------------------------: | :---------------------: |
+|          WinUSB |          WinUSB | ✅ | ❌ |
+|          WinUSB |        Digilent | ❌ | ❌ |
+|        Digilent |          WinUSB | ✅ | ✅ |
+|        Digilent |        Digilent | ❌ | ✅ |
 
 Vivado uses interface 1 with the Digilent driver, and OpenOCD uses interface 0 with the WinUSB driver.
 
