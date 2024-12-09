@@ -143,7 +143,7 @@ access, etc.
 * Interoperability of files and environment variables between WSL2 and Windows:
   [https://learn.microsoft.com/en-us/windows/wsl/filesystems](https://learn.microsoft.com/en-us/windows/wsl/filesystems)
   * The Windows home filespace is accessible from WSL as /mnt/c/Users/username
-  * The WSL2 filespace is accessible from Windows as \\wsl$ in filer, or from PowerShell as \\wsl.localhost\Ubuntu-24.04\home\username
+  * The WSL2 filespace is accessible from Windows as `\wsl$` in filer, or from PowerShell as `\wsl.localhost\Ubuntu-24.04\home\username`
   * When calling commands from WSL2, the shared environment variables are specified by the colon separated list in environment variable WSLENV. Note that this list can also specify path modifiers, etc. - see the above guide
 
 ## Dependencies
