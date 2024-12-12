@@ -28,7 +28,7 @@ However, Makefile dependencies are not fully set up, so `make clean`s may be req
 
 ## Adding the IP
 
-The APU is laid out as shown below, with CVA6 (though the module is still called ariane) connected to a top-level bus (described in [ariane_xilinx.sv](https://github.com/Capabilities-Limited/cva6/tree/af2b8b52/corev_apu/fpga/src/ariane_xilinx.sv)), which then instantiates another bus for peripherals (https://github.com/Capabilities-Limited/cva6/tree/af2b8b52/corev_apu/fpga/src/ariane_peripherals_xilinx.sv).
+The APU is laid out as shown below, with CVA6 (though the module is still called ariane) connected to a top-level bus (described in [ariane_xilinx.sv](https://github.com/Capabilities-Limited/cva6/tree/af2b8b52/corev_apu/fpga/src/ariane_xilinx.sv)), which then instantiates another bus for peripherals (in [ariane_peripherals_xilinx.sv](https://github.com/Capabilities-Limited/cva6/tree/af2b8b52/corev_apu/fpga/src/ariane_peripherals_xilinx.sv)).
 
 TODO diagram
 
@@ -121,12 +121,11 @@ The corev_apu framework builds and embeds a device tree, describing the hardware
 There is a separate device tree for 32-bit and 64-bit systems: we needed to make the same change to both of them.
 Interrupt numbers are also described here: note that interrupt numbers exposed to software are one higher than their index in the `irq_sources` vector, due to a difference between zero-based and one-based indexing.
 
-
 ## Help with debugging
 
 Adding peripherals can cause frustrating bugs, e.g. when interface connections don't quite line up, or peripherals don't behave as intended.
 Ideally as many bugs as possible can be found by testing in simulation first.
-For FPGA-specific bugs, we find it is always helpful to look through Vivado warnings to see any issues that look relevant to the issue.
+For FPGA-specific bugs, we find it is always helpful to look through Vivado warnings to identify any issue of relevance.
 These can be found scattered in various directories throughout the build, but recording the top-level log is useful too, e.g.
 
 ```sh
