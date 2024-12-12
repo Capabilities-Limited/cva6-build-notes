@@ -12,15 +12,18 @@ Downloaded the latest Ubuntu 24.04 LTS iso from the Ubuntu website
 [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop) - look for file ubuntu-24.04-desktop-amd64.iso
 
 Install virtual box, create a new VM and set the following parameters:
+
  - video memory: 64MiB
  - RAM:  32GiB
  - Disc: 200GiB VMDK image
  - CPUs: 4 or more
+
 Set the optical disc in the VM to point to the downloaded iso and boot. Keep the
 default options far installation, username "user", password "pass". When install
 is complete, reboot without the iso.
 
 A smaller configuration has been tested, which is sufficient to build the simulation and verification environment, but it likely to be too small for FPGA builds using Vivado:
+
  - video memory: 32MiB
  - RAM:  10GiB
  - Disc: 64GiB VMDK image
