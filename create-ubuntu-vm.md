@@ -88,6 +88,7 @@ vboxmanage startvm "$vmname"
 ## Completing the install on the virtual machine
 
 Use the GUI to:
+
 1. Select the default boot option  
 2. Click on 'Install Ubuntu'
 3. Follow instructions to: choose your language; any accessibility options; select your keyboard layout; use wired network connection; skip the new installer
