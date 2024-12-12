@@ -106,9 +106,5 @@ Use the GUI to:
 15. When asked 'Enable Ubuntu Pro' ensure 'Skip for now' is selected. Click 'Next'
 16. When asked 'Help improve Ubuntu' select 'No, don't share system data'. Click 'Next'; then clock 'Finish'
 17. Right click the background and select 'Open in Terminal'
-18. In the terminal enter 'sudo apt update;sudo apt upgrade -y' and enter your login password when asked.  This will upgrade any old packages.
-19. Install clipboard sharing, etc., using: 'sudo apt install -y virtualbox-guest-x11;sudo VBoxClient --clipboard
-
-
-
-
+18. In the terminal enter `sudo apt update; sudo apt upgrade -y` and enter your login password when asked.  This will upgrade any old packages.
+19. Install clipboard sharing, etc., using: `sudo apt install -y virtualbox-guest-x11; sudo VBoxClient --clipboard`
