@@ -5,7 +5,7 @@
 The following notes describe how to build the CVA6 core from the Open
 Hardware Group, and the assocaited toolchain.  The build process
 worked for us at the point the notes were written.  Please see the
-[Lincese](LICENSE) for licensing terms.
+[License](LICENSE) for licensing terms.
 
 
 # Contents
