@@ -78,7 +78,7 @@ The serial monitor allows interaction with the UART: note you may need to switch
 To run with debugging, insert a breakpoint by clicking next to a line number in a C file, then press "Run" from the menu bar, then "Start debugging".
 After the program is uploaded to the board, this should allow single stepping and inspecting variable values from within the IDE.
 The "Debug Console" tab shows more information.
-Note: due to what seems to be a [PlatformIO bug](https://github.com/platformio/platformio-core/issues/5047), running with debugging may cause a Python error due to indexing a list out-of-bounds. Until this is fixed, you can just change `https://github.com/platformio/platformio-core/blob/c1afb364e9039fac2838bd000227b0a1871a07a6/platformio/package/commands/exec.py#L57` (see the error message for the path on your system) as follows:
+Note: due to what seems to be a [PlatformIO bug](https://github.com/platformio/platformio-core/issues/5047), running with debugging may cause a Python error due to indexing a list out-of-bounds. Until this is fixed, you can just change [this file](https://github.com/platformio/platformio-core/blob/c1afb364e9039fac2838bd000227b0a1871a07a6/platformio/package/commands/exec.py#L57) (see the error message for the path on your system) as follows:
 ```diff
 -  if args[0].endswith(".py"):
 +  if args and args[0].endswith(".py"):
