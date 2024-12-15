@@ -5,6 +5,7 @@
 This guide describes how to add a component to the default CVA6 SoC for FPGA on the Genesys 2 board.
 This is required for devices that need to access one of the board's peripherals, and may also be suitable for accelerators for functionality taking several cycles to complete, i.e. when the coprocessor interface is unsuitable.
 The changes will be illustrated with examples that arose from changing over the Ethernet MAC from a lowRISC IP to the "AXI Ethernet" Xilinx IP, mostly within [this commit](https://github.com/Capabilities-Limited/cva6/commit/af2b8b52)).
+Seeing the changes made in that commit will be useful for following along with this guide.
 Note that the AXI Ethernet Xilinx component requires the Xilinx TEMAC license.
 
 ## The corev_apu framework
@@ -55,12 +56,18 @@ In particular, we add a build directory: [corev_apu/fpga/xilinx/xlnx_axi_etherne
 We specialise the [tcl/run.tcl](https://github.com/Capabilities-Limited/cva6/commit/242ae5c52193df0c0c5e3b1bb994d7f5794638ad#diff-6118aa8d1a0140034dd0050f729a379538c069045b69d8c1f0aefbb4ad140783R1) file with specifics of the IP to instantiate as follows:
 
 ```diff
++ set ipName xlnx_axi_ethernet
+
+// Skipping code not specific to added component
+
 + create_ip -name axi_ethernet -vendor xilinx.com -library ip -module_name $ipName
 + set_property -dict [ list CONFIG.PHY_TYPE {RGMII} \
 +                    ] [get_ips $ipName]
 ```
 
-We then add the required references for the new IP to the Makefile and run.tcl scripts.
+In the above, the arguments to `create_ip` describe the component to be instantiated, and the `set_property` arguments pass the arguments that can specilialise our particular IP: in our case telling the Mac that that the board has an "RGMII" Phy.
+
+We then add the required references for the new IP to the Makefile and run.tcl scripts for the FPGA build as a whole.
 The IP is also listed, again with parameters specialised, in ariane_xilinx_ip.yml:
 
 ```diff
@@ -75,7 +82,7 @@ We do this same process to instantiate the Xilinx AXI FIFO component, required t
 
 ## Interface conversions
 
-The Vivado system builder usually automatically handles conversions between different interconnect types (e.g. between AXI, AXI-Lite, Avalon, and different data widths).
+The Vivado system builder usually automatically handles conversions between different interconnect types (e.g. between AXI, AXI-Lite, and different data widths).
 Since we are working in Verilog, we need to do this manually instead, but we can still use the Xilinx components to do the transformations.
 
 ## Defining the address map
@@ -119,7 +126,7 @@ Example constraints can also be found in the [Digilent Genesys 2 out-of-box demo
 
 The corev_apu framework builds and embeds a device tree, describing the hardware and address map to allow them to be automatically discovered by certain operating systems.
 There is a separate device tree for 32-bit and 64-bit systems: we needed to make the same change to both of them.
-Interrupt numbers are also described here: note that interrupt numbers exposed to software are one higher than their index in the `irq_sources` vector, due to a difference between zero-based and one-based indexing.
+Interrupt numbers are also described here: note that interrupt numbers exposed to software (one-based) are one higher than their index in the `irq_sources` vector (zero-based).
 
 ## Help with debugging
 
