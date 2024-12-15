@@ -3,7 +3,7 @@
 # Adding a component to the CVA6 corev_apu SoC
 
 This guide describes how to add a component to the default CVA6 SoC for FPGA on the Genesys 2 board.
-This is required for devices that need to access one of the board's peripherals, and may also be suitable for accelerators for functionality taking several cycles to complete, i.e. when the coprocessor interface is unsuitable.
+This is required for devices that need to access one of the board's peripherals, and may also be suitable for accelerators for functionality taking several cycles to complete, i.e. when the co-processor interface is unsuitable.
 The changes will be illustrated with examples that arose from changing over the Ethernet MAC from a lowRISC IP to the "AXI Ethernet" Xilinx IP, mostly within [this commit](https://github.com/Capabilities-Limited/cva6/commit/af2b8b52)).
 Seeing the changes made in that commit will be useful for following along with this guide.
 Note that the AXI Ethernet Xilinx component requires the Xilinx TEMAC license.
@@ -11,7 +11,7 @@ Note that the AXI Ethernet Xilinx component requires the Xilinx TEMAC license.
 ## The corev_apu framework
 
 The framework is contained within the [`corev_apu`](https://github.com/Capabilities-Limited/cva6/tree/af2b8b52/corev_apu) subdirectory of the [CVA6](https://github.com/Capabilities-Limited/cva6/tree/af2b8b52/) repo.
-This contains all the components required to generate an FPGA bitstream, suitable for targetting several different Xilinx FPGA boards.
+This contains all the components required to generate an FPGA bitstream, suitable for targeting several different Xilinx FPGA boards.
 Rather than using Vivado's XML or GUI to connect IPs, the platform performs all these connections in (System)Verilog, and presents a Verilog module as the top-level.
 
 ## Preparing the environment
@@ -24,7 +24,7 @@ make fpga
 ```
 
 This takes about an hour to run.
-Many build artifacts (e.g. separate runs for different Xilinx IPs) are cached between runs.
+Many build artefacts (e.g. separate runs for different Xilinx IPs) are cached between runs.
 However, Makefile dependencies are not fully set up, so `make clean`s may be required when changing files between runs.
 
 ## Adding the IP
@@ -35,7 +35,7 @@ TODO diagram
 
 Since the Ethernet controller is a peripheral, and since the existing lowRISC IP is instantiated there, we will instantiate the Xilinx AXI Ethernet there also:
 
-In [ariane_periphals_xilinx.sv](https://github.com/Capabilities-Limited/cva6/commit/af2b8b52651278bfa813b66ce93aa0c106e87787#diff-afab9e4d855ccbd3fb324cf2ee13b65059fae8ebd3775f128c8a9ac9cff4673cR1009):
+In [ariane_peripherals_xilinx.sv](https://github.com/Capabilities-Limited/cva6/commit/af2b8b52651278bfa813b66ce93aa0c106e87787#diff-afab9e4d855ccbd3fb324cf2ee13b65059fae8ebd3775f128c8a9ac9cff4673cR1009):
 ```diff
 +        xlnx_axi_ethernet i_xlnx_axi_ethernet_mac (
 +            .s_axi_lite_resetn      ( rst_ni                           ),
@@ -65,7 +65,7 @@ We specialise the [tcl/run.tcl](https://github.com/Capabilities-Limited/cva6/com
 +                    ] [get_ips $ipName]
 ```
 
-In the above, the arguments to `create_ip` describe the component to be instantiated, and the `set_property` arguments pass the arguments that can specilialise our particular IP: in our case telling the Mac that that the board has an "RGMII" Phy.
+In the above, the arguments to `create_ip` describe the component to be instantiated, and the `set_property` arguments pass the arguments that can specialise our particular IP: in our case telling the Mac that that the board has an "RGMII" Phy.
 
 We then add the required references for the new IP to the Makefile and run.tcl scripts for the FPGA build as a whole.
 The IP is also listed, again with parameters specialised, in ariane_xilinx_ip.yml:
