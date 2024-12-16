@@ -262,10 +262,10 @@ Digilent Adept USB Device driver interactions with Vivado and with VSCode/Platfo
 
 | USB interface 1 | USB interface 0 | VSCode + PlatformIO + OpenOCD | Vivado hardware manager |
 | --------------- | --------------- | :---------------------------: | :---------------------: |
-|          WinUSB |          WinUSB | ✅ | ❌ |
-|          WinUSB |        Digilent | ❌ | ❌ |
-|        Digilent |          WinUSB | ✅ | ✅ |
-|        Digilent |        Digilent | ❌ | ✅ |
+|          WinUSB |          WinUSB |          ![](./img/cmark.png) |    ![](./img/xmark.png) |
+|          WinUSB |        Digilent |          ![](./img/xmark.png) |    ![](./img/xmark.png) |
+|        Digilent |          WinUSB |          ![](./img/cmark.png) |    ![](./img/cmark.png) |
+|        Digilent |        Digilent |          ![](./img/xmark.png) |    ![](./img/cmark.png) |
 
 Vivado uses interface 1 with the Digilent driver, and OpenOCD uses interface 0 with the WinUSB driver.
 
@@ -273,17 +273,6 @@ Vivado uses interface 1 with the Digilent driver, and OpenOCD uses interface 0 w
 
 If needed, you can reinstall the digilent drivers by running the digilent usb driver installer:
 `C:\Program Files (x86)\Digilent\Runtime\UsbDriver\DPInst.exe`
-
-
-
-
-
-
-
-
-
-
-
 
 ## Notes on the work in the CVA6 repository for WSL compatibility
 
