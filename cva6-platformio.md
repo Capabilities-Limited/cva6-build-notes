@@ -39,7 +39,8 @@ git clone https://github.com/Capabilities-Limited/platform-cva6-genesys2
 ```
 Then copy (or symlink) the repository into the "platforms" directory of your PlatformIO install:
 ```sh
-ln -s `pwd`/cva6-genesys2-platform ~/.platformio/platforms/
+mkdir -p ~/.platformio/platforms/
+ln -s `pwd`/platform-cva6-genesys2 ~/.platformio/platforms/
 ```
 TODO Windows
 
@@ -50,7 +51,8 @@ git -C framework-cva6-genesys2 submodule update --init --recursive
 ```
 Then copy (or symlink) the repository into the "packages" directory of your PlatformIO install:
 ```sh
-ln -s `pwd`/cva6-genesys2-framework ~/.platformio/packages/
+mkdir -p ~/.platformio/packages/
+ln -s `pwd`/framework-cva6-genesys2 ~/.platformio/packages/
 ```
 
 ## Use
