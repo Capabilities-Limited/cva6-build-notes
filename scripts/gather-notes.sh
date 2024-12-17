@@ -30,7 +30,14 @@ echo "preparing a toplevel document"
 cat << EOF > top.adoc
 :toc:
 :toc-placement!:
-image::./img/CapLtdLogo.png[align="center"]
+
+:doctype: book
+:title-logo-image: image:./img/CapLtdLogo.png[align=center]
+:revdate: 18 December 2024
+
+= SHIP Final Technical Report
+:title-page:
+
 <<<
 toc::[]
 <<<
