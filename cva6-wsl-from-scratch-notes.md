@@ -166,6 +166,7 @@ which should download:
 In file explorer, right click on the above tar file and "Extract All..." into the default directory.
 
 In the extracted directory, double click on xsetup.exe to start the installation.
+
 * Agreed to Java accessing the network
 * Agreed to the Xilinx end user agreement, the WebTalk Term and Conditions and the Third Party Software End User License Agreement, otherwise the install will not proceed.
 * Under "Select Product to Install" first tick "Vivado".
