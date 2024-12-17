@@ -79,7 +79,7 @@ for f in $RST_SRCS; do
   include_in_top $ff
 done
 
-echo "build and retrieve pdf - $wdir/notes.pdf"
-asciidoctor-pdf top.adoc && cp top.pdf $wdir/notes.pdf
+echo "build and retrieve pdf - $wdir/finalreport.pdf"
+asciidoctor-pdf top.adoc && cp top.pdf $wdir/finalreport.pdf
 
 cd $wdir
