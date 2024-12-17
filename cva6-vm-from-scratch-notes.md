@@ -104,7 +104,7 @@ less ~/cva6/verif/sim/out_*/iss_regr.log
 
 Note that the log should show the comparison between tests running the CVA6 core in Verilator against the Spike ISA simulator.
 
-To run the full test suite, execute 'bash verif/regress/dv-riscv-arch-test.sh'
+To run the full test suite, execute `bash verif/regress/dv-riscv-arch-test.sh`
 
 ## Install Vivado and build a bitfile
 
