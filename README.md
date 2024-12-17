@@ -1,14 +1,13 @@
 ![Cap Ltd Logo](./img/CapLtdLogo.png)
 
-# Notes on building and using CVA6
+# Documentation on building and using CVA6
 
-The following notes describe how to build the CVA6 core from the Open
-Hardware Group, and the assocaited toolchain.  The build process
-worked for us at the point the notes were written.  Please see the
-[License](LICENSE) for licensing terms.
+The following technical notes describe how to build the CVA6 core from
+the Open Hardware Group, and the assocaited toolchain.  The build
+process worked for us at the point the notes were written.
 
 
-## Overview
+## List of documents
 
 * [Create a Ubuntu virtual machine](create-ubuntu-vm.md)
 
@@ -18,7 +17,7 @@ worked for us at the point the notes were written.  Please see the
 
 * [Simulate a bare-metal example to inspect traces.](hello-world-verilator.md)
 
-* [Installing Vivado 2020.1](vivado-2020.1-ubuntu-install-notes.md)
+* [Installing and building with Vivado 2020.1](vivado-2020.1-ubuntu-install-notes.md)
 
 * [Building and booting FreeRTOS](freertos-boot.md)
 
@@ -28,4 +27,31 @@ worked for us at the point the notes were written.  Please see the
 
 * [CVA6 design space exploration](cva6-parameter-notes.rst)
 
+
+## Licensing
+
+BSD 2-Clause License
+
+Copyright (c) 2024, Capabilities-Limited
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this
+   list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
