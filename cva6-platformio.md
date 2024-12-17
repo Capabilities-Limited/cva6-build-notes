@@ -63,7 +63,7 @@ However, command line alternatives are also available.
 An [example project](https://github.com/Capabilities-Limited/platform-cva6-genesys2/tree/TODO) is included inside the platform repo.
 This shows basic use of the UART and GPIO peripherals.
 
-Open the project by opening the PlatformIO tab, click "Pick a folder" then navigate to the project.
+Open the project by opening the PlatformIO tab, click "Pick a folder" then navigate to the project (`~/.platformio/platforms/platform-cva6-genesys2/examples/cva6-sdk_uart_hello/`).
 
 To just compile the project (i.e. not run the code), hit the "Build" button shown below (the button changes based on the last action performed, so you may need to hit the drop-down arrow instead).
 To perform the equivalent from the command line, run `pio run` from the example project directory.
