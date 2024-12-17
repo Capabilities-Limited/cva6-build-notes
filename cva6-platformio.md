@@ -32,7 +32,7 @@ As an alternative to the IDE install, the core PlatformIO components can be inst
 ### Install the CVA6 platform and framework
 
 These are not yet distributed as PlatformIO packages, so need to be installed manually from the GitHub repositories.
-The commands shown below should work on Ubuntu and Mac. On Windows, the repositories need to be added to the analagous locations in the PlatformIO directory structure.
+The commands shown below should work on Ubuntu and Mac. On Windows, the repositories need to be added to the analogous locations in the PlatformIO directory structure.
 
 For the platform:
 ```sh
