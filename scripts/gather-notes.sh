@@ -16,6 +16,7 @@ MD_SRCS+=" cva6-wsl-from-scratch-notes.md"
 MD_SRCS+=" hello-world-verilator.md"
 MD_SRCS+=" vivado-2020.1-ubuntu-install-notes.md"
 MD_SRCS+=" freertos-boot.md"
+MD_SRCS+=" cva6-platformio.md"
 
 RST_SRCS=""
 RST_SRCS+="cva6-parameter-notes.rst"
