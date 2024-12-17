@@ -8,14 +8,14 @@ if [ -z ${notesdir+x} ]; then
   echo ""
 fi
 
-MD_SRCS=""
+MD_SRCS="README.md"
 MD_SRCS+=" create-ubuntu-vm.md"
-MD_SRCS+=" cva6-boot-linux.md"
 MD_SRCS+=" cva6-vm-from-scratch-notes.md"
 MD_SRCS+=" cva6-wsl-from-scratch-notes.md"
 MD_SRCS+=" hello-world-verilator.md"
 MD_SRCS+=" vivado-2020.1-ubuntu-install-notes.md"
 MD_SRCS+=" freertos-boot.md"
+MD_SRCS+=" cva6-boot-linux.md"
 MD_SRCS+=" cva6-platformio.md"
 
 RST_SRCS=""
@@ -52,8 +52,8 @@ echo "gather individual documents"
 function include_in_top() {
   # ensures a newline and page break at the end of the file
   echo "include::$1[]" >> top.adoc
-  echo "[%always]" >> top.adoc
-  echo "<<<" >> top.adoc
+#  echo "[%always]" >> top.adoc
+#  echo "<<<" >> top.adoc
   echo "" >> top.adoc
 }
 for f in $MD_SRCS; do
