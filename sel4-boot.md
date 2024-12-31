@@ -57,11 +57,11 @@ Type "apropos word" to search for commands related to "word"...
 Reading symbols from sel4test-driver-image-riscv-ariane...
 (gdb) 
 ```
-3. In gdb, you need to connect gdb to openocd:
+3. In gdb, you need to connect gdb to OpenOCD:
 ```
 (gdb) target remote :3333
 ```
-if it is successful, you should see the gdb connection in openocd:
+if it is successful, you should see the gdb connection in OpenOCD:
 ```
 Info : accepting 'gdb' connection on tcp/3333
 ```
@@ -101,7 +101,7 @@ OpenSBI v0.9
 Platform Name             : ARIANE RISC-V
 Platform Features         : timer,mfdeleg
 ```
-This is followed by more OpenSBI output, and then the sel4 kernel itself boots:
+This is followed by more OpenSBI output, and then the seL4 kernel itself boots:
 ```
 Init local IRQ
 Bootstrapping kernel
