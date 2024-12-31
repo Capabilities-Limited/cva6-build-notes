@@ -33,7 +33,7 @@ Info : Listening on port 4444 for telnet connections
 Info : accepting 'gdb' connection on tcp/3333
 
 ```
-2. In a separate terminal, launch **gdb**:
+2. In a separate terminal, launch **gdb**, and run it with the seL4 binary (an example is available [here](https://drive.google.com/drive/folders/1azphw9wquPcjpqhVg4aqD5IMktSmnicW?usp=sharing)):
 ```
 $ riscv64-unknown-elf-gdb <path>/sel4test-driver-image-riscv-ariane
 ```
