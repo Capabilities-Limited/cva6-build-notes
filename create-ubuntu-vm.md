@@ -39,7 +39,7 @@ The following has been tested in a Ubuntu box. This is based on the larger confi
 #!/bin/bash
 
 # Set Ubuntu version
-ubuntuversion="24.04"
+ubuntuversion="24.04.3"
 
 # Name the virtual machine
 vmname="Ubuntu "$ubuntuversion
